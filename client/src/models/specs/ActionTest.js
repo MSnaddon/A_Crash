@@ -9,7 +9,7 @@ describe("An action", function(){
 
   beforeEach(()=>{
     action = new Action(function(){
-      this.testData += 1
+      console.log("action executed")
     })
   })
   
