@@ -4,7 +4,7 @@ var assert = require("assert");
 
 describe("The game", function(){
   
-  const game;
+  let game;
 
   beforeEach(()=>{
     game = new Game();
@@ -27,7 +27,7 @@ describe("The game", function(){
   })
 
   it("should keep track of player's inventory", ()=>{
-    
+
   })
 
 
