@@ -19,7 +19,7 @@ describe("An Area", function(){
     assert.equal(area.actions);
   })
 
-  it("should have a togglable availability tha defaults false", ()=>{
+  it("should have a togglable availability that defaults false", ()=>{
     assert.equal(area.available, false);
     area.toggleAvailability();
     assert.equal(area.available, true);
