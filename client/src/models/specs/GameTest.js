@@ -1,4 +1,8 @@
 const Game = require('../Game')
+const Area = require('../Area')
+const Event = require('../Event')
+const InventoryItem = require('../InventoryItem')
+const Action = require('../Action')
 
 var assert = require("assert");
 
@@ -7,7 +11,7 @@ describe("The game", function(){
   let game;
 
   beforeEach(()=>{
-    game = new Game();
+    game = new Game(options());
   })
 
   it("should hold information about areas available", ()=>{
@@ -32,3 +36,9 @@ describe("The game", function(){
 
 
 })
+
+function options(){
+  return {
+
+  }
+}
