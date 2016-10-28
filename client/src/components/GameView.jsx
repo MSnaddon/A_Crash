@@ -6,7 +6,12 @@ const EventTicker = require("./EventTicker")
 
 class GameView extends React.Component{
   render() {
-    return <h2>GameView</h2>
+    return (
+      <div id="GameView">
+        <Controls/>
+        <Inventory/>
+        <EventTicker/>
+      </div>)
   }
 
 }
