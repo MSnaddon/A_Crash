@@ -1,6 +1,6 @@
 const Area = require('./Area');
 const Event = require('./Event');
-const InventoryItem = require('InventoryItem');
+const InventoryItem = require('./InventoryItem');
 
 class Game {
   constructor(){
@@ -12,15 +12,15 @@ class Game {
       new Event("Realise your're just a line of text, but a good line of text")
     ];
     this.inventory = {
-      fuel: [new InventoryItem("Bio-fuel")]
+      fuel: [new InventoryItem("Bio Fuel")],
       weapons: [new InventoryItem("stick"), new InventoryItem("big stick")]
-    }
+    };
 
-    console.log(this.areaSelection)
-    console.log(this.focusArea)
-    console.log(this.actions)
-    console.log(this.events)
-    console.log(this.inventory)
+    // console.log(this.areaSelection)
+    // console.log(this.focusArea)
+    // console.log(this.actions)
+    // console.log(this.events)
+    // console.log(this.inventory)
 
   } 
 }
