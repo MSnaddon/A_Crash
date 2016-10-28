@@ -37,7 +37,21 @@ describe("The game", function(){
 
 })
 
+// for test
+// Events will have "started testing" and "continue testing" 
+// Inventory items have catagory food and weapons with fruit and meat in food and sword in weapons
+// Actions will include gather fruit, hunt, eat and forge sword
+// Areas will include HQ and CryoBank
+
+
 function options(){
+  let events = [new Event("Started Testing"), new Event("continuing testing")]
+  let InventoryItems = {
+    food: [new InventoryItem("apples"), new InventoryItem("")],
+    weapons: [new InventoryItem("sword")]
+  }
+  
+  let Areas = [new Area("testArea1")]
   return {
 
   }
