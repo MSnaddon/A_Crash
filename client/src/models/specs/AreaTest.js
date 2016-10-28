@@ -11,13 +11,18 @@ describe("An Area", function(){
   })
 
   it("should have a name", ()=>{
-    assert.equal(area.name, "The barrens")
+    assert.equal(area.name, "The barrens");
 
   })
 
   it("should have a list of actions", ()=>{
-    assert.equal(area.actions)
+    assert.equal(area.actions);
+  })
 
+  it("should have a togglable availability tha defaults false", ()=>{
+    assert.equal(area.available, false);
+    area.toggleAvailability();
+    assert.equal(area.available, true);
   })
 
 })
