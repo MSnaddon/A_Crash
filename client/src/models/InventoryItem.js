@@ -1,5 +1,6 @@
-class Event{
-  constructor(description){
-    this.description = description
+class InventoryItem{
+  constructor(name){
+    this.name = name
   }
 }
+
