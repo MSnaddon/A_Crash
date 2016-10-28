@@ -15,8 +15,8 @@ describe("An InventoryItem", function(){
     assert.equal(item.name, "food");
   })
 
-  it("should have a starding quantity", ()=>{
-    asser.equal(item.quantity, 4)
+  it("should have a starting quantity", ()=>{
+    assert.equal(item.quantity, 4)
   })
 
 })
