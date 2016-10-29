@@ -18,10 +18,40 @@ describe("The game", function(){
     assert.equal(game.eventFeed[0].description, "Started Testing")
   })
 
+  it("should hold an object of inventory items by catagory",()=>{
+    assert.equal(game.inventory.food.fruit.name, "fruit")
+    assert.equal(game.inventory.weapons.sword.name, "sword")
+  })
   
+  it("should have a list of areas", ()=>{
+    
+    assert.equal(,)
+  })
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // for test
 // Events will have "started testing" and "continue testing" 
@@ -37,7 +67,7 @@ function options(){
       fruit: new InventoryItem("fruit",2), 
       meat: new InventoryItem("meat", 4)
     },
-    weapons: {swords: new InventoryItem("sword")}
+    weapons: {sword: new InventoryItem("sword")}
   };
   
   let gatherFruit = new Action(function(){
