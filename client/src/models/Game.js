@@ -10,10 +10,9 @@ class Game {
     this.inventory = inventory;
 
 
-    // console.log(this.areaSelection)
+    // console.log(this.areas)
     // console.log(this.focusArea)
-    // console.log(this.actions)
-    // console.log(this.events)
+    // console.log(this.eventFeed)
     // console.log(this.inventory)
 
   } 

@@ -14,25 +14,11 @@ describe("The game", function(){
     game = new Game(options());
   })
 
-  it("should hold information about areas available", ()=>{
-
+  it("Should hold events in array", ()=>{
+    assert.equal(game.eventFeed[0].description, "Started Testing")
   })
 
-  it ("should hold the currently focused area", ()=>{
-
-  })
-
-  it("should hold the actions available for the focused", ()=>{
-
-  })
-
-  it("should hold a list of previous events", ()=>{
-
-  })
-
-  it("should keep track of player's inventory", ()=>{
-
-  })
+  
 
 
 })
