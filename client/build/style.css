@@ -61,11 +61,12 @@
 #area-select{
   display:flex;
   flex-flow: row nowrap;
+  overflow-x: scroll;
 }
 
 #action-select{
   display:flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
 }
 
 /*event-box styling*/

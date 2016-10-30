@@ -85,7 +85,7 @@ function options(){
     this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
   });
 
-  let learnHunting = new Action("Learn to Hunt Better", function(){
+  let learnHunting = new Action("Learn to Hunt ", function(){
     for (let i = 0; i<this.areas.forest.actions.length;i++){
       let action = this.areas.forest.actions[i]
       if (action.label === "Hunt"){
@@ -94,12 +94,13 @@ function options(){
         })
       }
     }
+
   })
   
   let areas = {
-    hQ: new Area("HeadQuarters", forgeSword, eatFood),
+    hQ: new Area("Headquarters", forgeSword, eatFood),
     forest: new Area("Forest", gatherFruit, hunt),
-    testGround: new Area("Testing Grounds",learnHunting)
+    plains: new Area("Plains", learnHunting)
   };
 
   return {
