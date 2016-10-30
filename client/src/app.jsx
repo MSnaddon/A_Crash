@@ -63,18 +63,17 @@ function options(){
 
   let hunt = new Action("Hunt",function(){
     this.inventory.food.meat.quantity += 3;
-    this.eventFeed.push(new Event("you hunt some meat"));
+    this.eventFeed.push(new Event("You hunt some meat"));
   });
 
   let eatFood = new Action("Eat",function(){
-    console.log(this.inventory)
-    if (this.inventory.fruit) {
+    if (this.inventory.food.fruit.quantity > 0) {
       this.inventory.food.fruit.quantity -= 1;
-      this.eventFeed.push(new Event("you eat some fruit"));
+      this.eventFeed.push(new Event("You eat some fruit"));
     } 
-    else if (this.inventory.meat){
+    else if (this.inventory.food.meat.quantity > 0){
       this.inventory.food.meat.quantity -= 1;
-      this.eventFeed.push(new Event("you eat some meat"));
+      this.eventFeed.push(new Event("You eat some meat"));
     } 
     else {
       this.eventFeed.push(new Event("You have no food to eat"));
