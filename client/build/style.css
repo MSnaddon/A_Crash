@@ -1,0 +1,15 @@
+#game-view{
+  display:flex;
+  flex-flow:row nowrap;
+  margin:10px;
+  padding:10px;
+}
+
+.game-view-child{
+  margin-right: 20px;
+  padding:10px;
+}
+#controls{
+  min-width: 200px;
+  flex: 2 1 auto;
+}

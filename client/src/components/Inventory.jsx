@@ -18,7 +18,7 @@ class Inventory extends React.Component {
     }
 
     return (
-      <div id="inventory">
+      <div className="game-view-child" id="inventory">
         {catagories}
       </div>
       )

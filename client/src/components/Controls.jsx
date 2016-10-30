@@ -23,7 +23,7 @@ class Controls extends React.Component {
     // console.log(actions)
 
     return (
-      <div id="controls">
+      <div className="game-view-child" id="controls">
         <div id="Area Select">
           {availableAreas}
         </div>
