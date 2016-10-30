@@ -25,5 +25,26 @@
   flex: 2 1 auto;
 }
 
+/*button styling*/
+.button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.action-button{
+  margin:10px;
+  height: 30px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.area-change-button{
+  margin:10px;
+  height: 40px;
+  width: 120px;
+}
+
+/*control-box styling*/
 

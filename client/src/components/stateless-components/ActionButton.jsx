@@ -12,7 +12,7 @@ const ActionButton = ({action, handleActionButtonClick})=>{
     handleActionButtonClick(action);
   }
   return (
-    <div className="Action Button" onClick={onClick}>{action.label}</div>
+    <div className="action-button button" onClick={onClick}>{action.label}</div>
     )
 }
 

@@ -24,11 +24,13 @@ class Controls extends React.Component {
 
     return (
       <div className="game-view-child" id="controls">
-        <div id="Area Select">
+        <div id="area-select">
           {availableAreas}
         </div>
         <hr></hr>
-        {actions}
+        <div id="action-select">
+          {actions}
+        </div>
       </div>
       )
   }

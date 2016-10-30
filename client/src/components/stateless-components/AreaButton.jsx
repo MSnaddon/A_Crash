@@ -7,7 +7,7 @@ const AreaButton = ({area, handleAreaChange})=>{
     handleAreaChange(area);
   }
   return (
-    <div onClick={onClick}>{area.name}</div>
+    <div className="area-change-button button" onClick={onClick}>{area.name}</div>
     )
 }
 
