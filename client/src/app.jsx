@@ -10,6 +10,7 @@ window.onload = () => {
   let game = new Game(options())
 
   ReactDom.render(<GameView gameObject={game}/>, document.querySelector("#main-container"));
+
 }
 
 
@@ -23,6 +24,27 @@ window.onload = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Area = require('./models/Area')
+const Event = require('./models/Event')
+const InventoryItem = require('./models/InventoryItem')
+const Action = require('./models/Action')
 
 function options(){
   let events = [new Event("Started Testing"), new Event("continuing testing")];
