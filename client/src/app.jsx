@@ -47,7 +47,7 @@ const InventoryItem = require('./models/InventoryItem')
 const Action = require('./models/Action')
 
 function options(){
-  let events = [new Event("Started Testing"), new Event("continuing testing")];
+  let events = [new Event("Started Testing"), new Event("Continuing testing")];
   let inventoryItems = {
     food: {
       fruit: new InventoryItem("Fruit",2), 
@@ -67,6 +67,7 @@ function options(){
   });
 
   let eatFood = new Action("Eat",function(){
+    console.log(this.inventory)
     if (this.inventory.fruit) {
       this.inventory.food.fruit.quantity -= 1;
       this.eventFeed.push(new Event("you eat some fruit"));
