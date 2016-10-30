@@ -18,10 +18,11 @@ class GameView extends React.Component{
 
   handleActionButtonClick(action){
     console.log("handle Action click", action)
+    this.state.game.doAction(action);
+    this.forceUpdate()
   }
 
   handleAreaChange(area){
-    console.log("this is ",this)
     this.setState({focusArea: area})
   }
 

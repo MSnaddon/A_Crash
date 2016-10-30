@@ -10,8 +10,7 @@ class EventTicker extends React.Component {
 
     return (
       <div className="game-view-child" id="event-ticker">
-        <h3>I Am EventTicker</h3>
-        {events}
+        {events.reverse()}
       </div>
       )
   }
