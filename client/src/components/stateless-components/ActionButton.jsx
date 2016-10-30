@@ -6,11 +6,11 @@ const React = require('react');
 //eg const Button = ({onClick, infoData})=>{}
 // again, look this up
 
-const ClickButton = ({onClick, buttonLabel, className })=>{
+const ActionButton = ({action, clickHandler})=>{
 
   return (
-    <div className={className} onClick={onClick}>{buttonLabel}</div>
+    <div className={className} onClick={onClick}>{action.label}</div>
     )
 }
 
-module.exports = ClickButton;
+module.exports = ActionButton;

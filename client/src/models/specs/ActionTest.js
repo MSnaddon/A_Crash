@@ -8,7 +8,7 @@ describe("An action", function(){
   let testObject;
 
   beforeEach(()=>{
-    action = new Action(function(){
+    action = new Action("action", function(){
       console.log("action executed")
     })
   })
@@ -24,5 +24,8 @@ describe("An action", function(){
     assert.equal(action.available, true);
   })
 
+  it("should have a label", ()=>{
+    assert.equal(action.label,"action")
+  })
 
 })

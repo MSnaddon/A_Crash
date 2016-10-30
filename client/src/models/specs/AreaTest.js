@@ -9,10 +9,10 @@ describe("An Area", function(){
   let action;
 
   beforeEach(()=>{
-    action1 = new Action(function(){
+    action1 = new Action("action1",function(){
       console.log("action 1 executed")
     })
-    action2 = new Action(function(){
+    action2 = new Action("action2",function(){
       console.log("action 2 executed")
     })
     

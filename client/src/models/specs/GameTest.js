@@ -78,17 +78,17 @@ function options(){
     weapons: {sword: new InventoryItem("sword", 0)}
   };
   
-  let gatherFruit = new Action(function(){
+  let gatherFruit = new Action("Gather Fruit",function(){
     this.inventory.food.fruit.quantity += 5;
     this.eventFeed.push(new Event("you gather fruit"));
   });
 
-  let hunt = new Action(function(){
+  let hunt = new Action("Hunt",function(){
     this.inventory.food.meat.quantity += 3;
     this.eventFeed.push(new Event("you hunt some meat"));
   });
 
-  let eatFood = new Action(function(){
+  let eatFood = new Action("Eat",function(){
     if (this.inventory.fruit) {
       this.inventory.food.fruit.quantity -= 1;
       this.eventFeed.push(new Event("you eat some fruit"));
@@ -102,7 +102,7 @@ function options(){
     }
   });
 
-  let forgeSword = new Action(function(){
+  let forgeSword = new Action("Forge weapon",function(){
     this.inventory.weapons.sword.quantity += 1;
     this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
   });
