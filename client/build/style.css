@@ -21,8 +21,8 @@
   flex: 0 1 auto;
 }
 #controls{
-  min-width:200px;
-  flex: 2 1 auto;
+  width:400px;
+  flex: 0 1 auto;
 }
 
 /*button styling*/
@@ -36,15 +36,25 @@
 .action-button{
   margin:10px;
   height: 30px;
-  width: 100px;
+  width: 120px;
   border: 1px solid black;
 }
 
 .area-change-button{
-  margin:10px;
+  margin:10px 0px;
   height: 40px;
   width: 120px;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 
 /*control-box styling*/
 
+#area-select{
+  display:flex;
+  flex-flow: row nowrap;
+}
+#action-select{
+  display:flex;
+  flex-flow: row wrap;
+}
