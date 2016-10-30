@@ -50,10 +50,10 @@ function options(){
   let events = [new Event("Started Testing"), new Event("continuing testing")];
   let inventoryItems = {
     food: {
-      fruit: new InventoryItem("fruit",2), 
-      meat: new InventoryItem("meat", 4)
+      fruit: new InventoryItem("Fruit",2), 
+      meat: new InventoryItem("Meat", 4)
     },
-    weapons: {sword: new InventoryItem("sword", 0)}
+    weapons: {sword: new InventoryItem("Sword", 0)}
   };
   
   let gatherFruit = new Action("Forage fruit",function(){
