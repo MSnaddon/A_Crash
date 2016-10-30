@@ -5,9 +5,16 @@ const ClickButton = require('./stateless-components/ClickButton')
 class Controls extends React.Component {
   constructor(props){
     super(props);
-    this.state = {focusArea}
+    console.log(props)
   }
   render(){
+
+    let availableAreas = []
+    for (let area in props.game.areas){
+      availableAreas.push(area)
+    }
+    console.log(availableAreas)
+
     return (
       <div id="controls">
         <h3>I am Controls</h3>

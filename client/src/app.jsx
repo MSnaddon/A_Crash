@@ -7,7 +7,7 @@ const GameView = require("./components/GameView")
 
 window.onload = () => {
   
-  let game = new Game(options())
+  let game = new Game(options());
 
   ReactDom.render(<GameView gameObject={game}/>, document.querySelector("#main-container"));
 
@@ -92,7 +92,6 @@ function options(){
 
   return {
     areas: areas,
-    focusArea: areas.hQ,
     eventFeed: events,
     inventory: inventoryItems
   }

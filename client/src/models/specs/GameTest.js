@@ -114,7 +114,6 @@ function options(){
 
   return {
     areas: areas,
-    focusArea: areas.hQ,
     eventFeed: events,
     inventory: inventoryItems
   }
