@@ -23,7 +23,7 @@ class GameView extends React.Component{
 
     return (
       <div id="GameView">
-        <Controls game={this.state.game} focusArea={this.state.focusArea} handleActionButtonClick={this.handleActionButtonClick}/>
+        <Controls game={this.state.game} focusArea={this.state.focusArea} handleActionButtonClick={this.handleActionButtonClick} handleAreaChange={handleAreaChange}/>
         <Inventory inventory={this.state.game.inventory}/>
         <EventTicker feed={this.state.game.eventFeed}/>
       </div>)

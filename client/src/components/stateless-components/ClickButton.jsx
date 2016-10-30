@@ -6,10 +6,10 @@ const React = require('react');
 //eg const Button = ({onClick, infoData})=>{}
 // again, look this up
 
-const ClickButton = ({onClick, buttonLabel })=>{
+const ClickButton = ({onClick, buttonLabel, className })=>{
 
   return (
-    <div className="ClickButton" onClick={onClick}>{buttonLabel}</div>
+    <div className={className} onClick={onClick}>{buttonLabel}</div>
     )
 }
 
