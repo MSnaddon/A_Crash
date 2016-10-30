@@ -1,5 +1,5 @@
 class InventoryItem{
-  constructor(name, initialQuantity){
+  constructor(name, initialQuantity = 0){
     this.name = name;
     this.quantity = initialQuantity;
   }

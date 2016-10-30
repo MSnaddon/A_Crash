@@ -9,13 +9,10 @@ class Game {
     this.eventFeed = eventFeed;
     this.inventory = inventory;
 
-
-    // console.log(this.areas)
-    // console.log(this.focusArea)
-    // console.log(this.eventFeed)
-    // console.log(this.inventory)
-
-  } 
+  }
+  doAction(action){
+    action.trigger.bind(this)();   
+  }
 }
 
 module.exports = Game;
