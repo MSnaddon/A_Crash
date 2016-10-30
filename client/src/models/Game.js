@@ -5,7 +5,7 @@ const InventoryItem = require('./InventoryItem');
 class Game {
   constructor({areas, focusArea, eventFeed, inventory}){
     this.areas = areas;
-    this.focusArea = focusArea;
+    this.focusArea = focusArea; // do we need?
     this.eventFeed = eventFeed;
     this.inventory = inventory;
 

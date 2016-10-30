@@ -7,14 +7,21 @@ const EventTicker = require("./EventTicker")
 class GameView extends React.Component{
   constructor(props){
     super(props);
-    this.state = {game: props.gameObject};
-    this.state.focusArea = props.gameObject.focusArea
+    this.state = {
+      game: props.gameObject, 
+      focusArea: props.gameObject.areas[0]
+    };
   }
+  handleActionButtonClick(action){
+    console.log("handle Action click", action)
+  }
+  handleAreaChange(areaKey)
   render() {
     let game = this.state.game;
+
     return (
       <div id="GameView">
-        <Controls areas={game.areas} focusArea={this.state.focusArea}/>
+        <Controls game={this.state.game} focusArea={this.state.focusArea} handleActionButtonClick={this.handleButtonClick}/>
         <Inventory inventory={this.state.game.inventory}/>
         <EventTicker feed={this.state.game.eventFeed}/>
       </div>)
