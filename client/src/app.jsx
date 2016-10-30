@@ -84,10 +84,22 @@ function options(){
     this.inventory.weapons.sword.quantity += 1;
     this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
   });
+
+  let learnHunting = new Action("Learn to Hunt Better", function(){
+    for (let i = 0; i<this.areas.forest.actions.length;i++){
+      let action = this.areas.forest.actions[i]
+      if (action.label === "Hunt"){
+        this.areas.forest.actions[i] = new Action("Hunt better", function(){
+          this.inventory.food.meat.quantity += 10
+        })
+      }
+    }
+  })
   
   let areas = {
     hQ: new Area("HeadQuarters", forgeSword, eatFood),
-    forest: new Area("Forest", gatherFruit, hunt)
+    forest: new Area("Forest", gatherFruit, hunt),
+    testGround: new Area("Testing Grounds",learnHunting)
   };
 
   return {
