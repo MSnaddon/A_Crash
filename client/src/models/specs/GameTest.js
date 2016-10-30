@@ -39,7 +39,21 @@ describe("The game", function(){
 
 })
 
+describe("The Async Game", function(){
 
+  let game;
+  let gOptions = options();
+
+  beforeEach(()=>{
+    game = new Game(gOptions);
+  })
+
+
+
+
+
+
+})
 
 
 
