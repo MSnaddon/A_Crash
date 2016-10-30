@@ -11,19 +11,26 @@ class GameView extends React.Component{
       game: props.gameObject, 
       focusArea: props.gameObject.areas["hQ"]
     };
+
+    this.handleActionButtonClick = this.handleActionButtonClick.bind(this);
+    this.handleAreaChange = this.handleAreaChange.bind(this)
   }
+
   handleActionButtonClick(action){
     console.log("handle Action click", action)
   }
+
   handleAreaChange(area){
+    console.log("this is ",this)
     this.setState({focusArea: area})
   }
+
   render() {
     let game = this.state.game;
 
     return (
       <div id="GameView">
-        <Controls game={this.state.game} focusArea={this.state.focusArea} handleActionButtonClick={this.handleActionButtonClick} handleAreaChange={handleAreaChange}/>
+        <Controls game={this.state.game} focusArea={this.state.focusArea} handleActionButtonClick={this.handleActionButtonClick} handleAreaChange={this.handleAreaChange}/>
         <Inventory inventory={this.state.game.inventory}/>
         <EventTicker feed={this.state.game.eventFeed}/>
       </div>)

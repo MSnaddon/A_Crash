@@ -1,30 +1,34 @@
 const React = require('react');
 
-const ClickButton = require('./stateless-components/ClickButton')
+const ActionButton = require('./stateless-components/ActionButton')
+const AreaButton = require('./stateless-components/AreaButton')
 
 class Controls extends React.Component {
   constructor(props){
     super(props);
-    console.log(props)
+    // console.log(props)
   }
   render(){
 
     let availableAreas = []
     for (let area in this.props.game.areas){
       availableAreas.push(
-        <ClickButton onClick={this.props.handleAreaChange} 
-        buttonLabel= {this.props.game.areas[area].name}
-        class="area-select-button"
-         />
-
+        <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange}/>
         )
     }
-    console.log(availableAreas)
+    let actions = []
+    for(let action of this.props.focusArea.actions){
+      actions.push(<ActionButton key={action.label} action={action} handleActionButtonClick={this.props.handleActionButtonClick}/>)
+    }
+    // console.log(actions)
 
     return (
       <div id="controls">
-        <h3>I am Controls</h3>
-        <ClickButton  onClick={()=>{console.log("ButtonClicked")}} buttonLabel="testing" className="testing"/>
+        <div id="Area Select">
+          {availableAreas}
+        </div>
+        <hr></hr>
+        {actions}
       </div>
       )
   }

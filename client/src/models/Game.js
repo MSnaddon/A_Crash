@@ -10,7 +10,7 @@ class Game {
 
   }
   doAction(action){
-    action.trigger.bind(this)();   
+    action.trigger.bind(this)();
   }
 }
 
