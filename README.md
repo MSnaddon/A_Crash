@@ -24,6 +24,8 @@ initialQuantity - initial quantity for inventory
 Progression( description, advanceAction, thresholdObject )
 description - a short description of the game's progression point
 advanceAction - an Action object detailing the changes being made for progression
-thresholdObject - object where key is the checks name and the value is a function that returns true or false depending on a condition set.
+thresholdObject - object where key is the checks name and the value is one of two options.
+1) a function that returns true or false depending on a condition set.
+2) a false value which another Action will set to true (failing to will render the progression impossible)
 
 Game ()

@@ -3,10 +3,11 @@ const Event = require('./Event');
 const InventoryItem = require('./InventoryItem');
 
 class Game{
-  constructor({areas, eventFeed, inventory}){
+  constructor({areas, eventFeed, inventory, goals}){
     this.areas = areas;
     this.eventFeed = eventFeed;
     this.inventory = inventory;
+    this.goals = goals
     this.supply = {};
 
     this.populateSupplyWithInventory();
