@@ -2,7 +2,7 @@ const Area = require('./Area');
 const Event = require('./Event');
 const InventoryItem = require('./InventoryItem');
 
-class Game {
+class Game{
   constructor({areas, eventFeed, inventory}){
     this.areas = areas;
     this.eventFeed = eventFeed;
@@ -13,9 +13,16 @@ class Game {
 
   }
   populateSupplyWithInventory(){
-    for(let catagory in this.inventory) {
+    for(let catagory in this.inventory){
       this.supply[catagory]={}
     };
+  }
+  supplyTick(){
+    for(let catagory in this.supply){
+      for (let item in this.supply[catagory]){
+        this.inventory[catagory][item].quantity += this.supply[catagory][item];
+      }
+    }
   }
   doAction(action){
     action.trigger.bind(this)();
