@@ -68,7 +68,6 @@ function options(){
   });
 
   let eatFood = new Action("Eat",function(){
-    console.log(this.inventory.food)
     if (this.inventory.food.fruit.quantity) {
       this.inventory.food.fruit.quantity -= 1;
       this.eventFeed.push(new Event("you eat some fruit"));
