@@ -17,8 +17,10 @@ class Controls extends React.Component {
         )
     }
     let actions = []
-    for(let action of this.props.focusArea.actions){
-      actions.push(<ActionButton key={action.label} action={action} handleActionButtonClick={this.props.handleActionButtonClick}/>)
+    let key = 0
+    for(let action in this.props.focusArea.actions){
+      actions.push(<ActionButton key={key} action={this.props.focusArea.actions[action]} handleActionButtonClick={this.props.handleActionButtonClick}/>)
+      key ++
     }
     // console.log(actions)
 

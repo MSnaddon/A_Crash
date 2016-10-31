@@ -46,34 +46,35 @@ const Event = require('./models/Event')
 const InventoryItem = require('./models/InventoryItem')
 const Action = require('./models/Action')
 
+
 function options(){
-  let events = [new Event("Started Testing"), new Event("Continuing testing")];
+  let events = [new Event("Started Testing"), new Event("continuing testing")];
   let inventoryItems = {
     food: {
-      fruit: new InventoryItem("Fruit",2), 
-      meat: new InventoryItem("Meat", 4)
+      fruit: new InventoryItem("fruit",2), 
+      meat: new InventoryItem("meat", 4)
     },
-    weapons: {sword: new InventoryItem("Sword", 0)}
+    weapons: {sword: new InventoryItem("sword", 0)}
   };
   
-  let gatherFruit = new Action("Forage fruit",function(){
+  let gatherFruit = new Action("Gather Fruit",function(){
     this.inventory.food.fruit.quantity += 5;
     this.eventFeed.push(new Event("you gather fruit"));
   });
 
   let hunt = new Action("Hunt",function(){
     this.inventory.food.meat.quantity += 3;
-    this.eventFeed.push(new Event("You hunt some meat"));
+    this.eventFeed.push(new Event("you hunt some meat"));
   });
 
   let eatFood = new Action("Eat",function(){
-    if (this.inventory.food.fruit.quantity > 0) {
+    if (this.inventory.fruit) {
       this.inventory.food.fruit.quantity -= 1;
-      this.eventFeed.push(new Event("You eat some fruit"));
+      this.eventFeed.push(new Event("you eat some fruit"));
     } 
-    else if (this.inventory.food.meat.quantity > 0){
+    else if (this.inventory.meat){
       this.inventory.food.meat.quantity -= 1;
-      this.eventFeed.push(new Event("You eat some meat"));
+      this.eventFeed.push(new Event("you eat some meat"));
     } 
     else {
       this.eventFeed.push(new Event("You have no food to eat"));
@@ -84,7 +85,7 @@ function options(){
     this.inventory.weapons.sword.quantity += 1;
     this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
   });
-
+  
   let learnHunting = new Action("Learn to Hunt ", function(){
     for (let i = 0; i<this.areas.forest.actions.length;i++){
       let action = this.areas.forest.actions[i]
@@ -93,14 +94,21 @@ function options(){
           this.inventory.food.meat.quantity += 10
         })
       }
-    }
-
+    } 
   })
-  
+
   let areas = {
-    hQ: new Area("Headquarters", forgeSword, eatFood),
-    forest: new Area("Forest", gatherFruit, hunt),
-    plains: new Area("Plains", learnHunting)
+    hQ: new Area("HeadQuarters", {
+      forgeSword: forgeSword, 
+      eat: eatFood
+    }),
+    forest: new Area("Forest", {
+      gatherFruit: gatherFruit, 
+      hunt: hunt
+    }),
+    plains: new Area("Plains", {
+      leanrHunting: learnHunting
+    })
   };
 
   return {
