@@ -10,8 +10,17 @@ class Progression{
   isPastThreshold(progression){
     //DO NOT CALL 'progression.isPastThreshold'. NO REASON WHY, SO DON'T DO IT
     //this = the game
-    for(let check in progression.thresholds){
-      if ( !progression.thresholds[check].bind(this)() ) return false;
+    for(let checkKey in progression.thresholds){
+      let check = progression.thresholds[checkKey];
+
+      // if boolean, check for false. else, invoke checker function and return false on fail
+      if (typeof check === 'boolean'){
+        if (!check) return false;
+      } else {
+        if(!check.bind(this)()) return false;
+      }
+      
+
     }
     progression.done = true
     return true

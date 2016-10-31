@@ -3,11 +3,11 @@ const Event = require('./Event');
 const InventoryItem = require('./InventoryItem');
 
 class Game{
-  constructor({areas, eventFeed, inventory, goals}){
+  constructor({areas, eventFeed, inventory, progressions}){
     this.areas = areas;
     this.eventFeed = eventFeed;
     this.inventory = inventory;
-    this.goals = goals
+    this.progressions = progressions
     this.supply = {};
 
     this.populateSupplyWithInventory();
@@ -28,9 +28,14 @@ class Game{
   doAction(action){
     action.trigger.bind(this)();
   }
-  // checkProgress(){
-  //   this.progress.isPastThreshold(this)
-  // }
+  checkProgression(){
+    for(let key in this.progressions){
+      let goal = this.progressions[key]
+      if(goal.isPastThreshold.bind(this)(goal)){
+        this.doAction.bind(this)(goal.advanceAction);
+      }
+    }
+  }
 }
 
 module.exports = Game;
