@@ -27,6 +27,9 @@ class Game{
   doAction(action){
     action.trigger.bind(this)();
   }
+  // checkProgress(){
+  //   this.progress.isPastThreshold(this)
+  // }
 }
 
 module.exports = Game;
