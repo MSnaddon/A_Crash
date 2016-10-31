@@ -17,11 +17,11 @@ class GameView extends React.Component{
   }
   componentWillMount(){
     //for testing
-    this.state.game.supply.food.fruit = 1
+    this.state.game.supply.food.fruit = 2
     setInterval(()=>{
       this.state.game.supplyTick()
       this.forceUpdate()
-    }, 500)
+    }, 5000)
 
   }
 
