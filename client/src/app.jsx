@@ -86,15 +86,10 @@ function options(){
     this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
   });
   
-  let learnHunting = new Action("Learn to Hunt ", function(){
-    for (let i = 0; i<this.areas.forest.actions.length;i++){
-      let action = this.areas.forest.actions[i]
-      if (action.label === "Hunt"){
-        this.areas.forest.actions[i] = new Action("Hunt better", function(){
-          this.inventory.food.meat.quantity += 10
-        })
-      }
-    } 
+  let learnHunting = new Action("Learn to Hunt", function(){
+    this.areas.forest.actions.hunt = new Action("Hunt +", function(){
+      this.inventory.food.meat.quantity += 10
+    }) 
   })
 
   let areas = {
