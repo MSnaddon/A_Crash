@@ -1,10 +1,11 @@
 const Action = require("./Action");
 
 class Area {
-  constructor(name, ...actions){
+  constructor(name, actions){
     this.name = name
     this.available = false
     this.actions = actions
+
   }
   toggleAvailability(){
     this.available = this.available === false
