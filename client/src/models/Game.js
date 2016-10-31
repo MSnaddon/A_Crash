@@ -20,7 +20,7 @@ class Game{
   supplyTick(){
     for(let catagory in this.supply){
       for (let item in this.supply[catagory]){
-        this.inventory[catagory][item].quantity += this.supply[catagory][item];
+        this.inventory[catagory][item].quantity += this.supply[catagory][item] || 0;
       }
     }
   }

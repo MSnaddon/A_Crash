@@ -11,12 +11,15 @@ class Controls extends React.Component {
   render(){
 
     let availableAreas = []
+
     for (let area in this.props.game.areas){
       availableAreas.push(
-        <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange}/>
+        <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
         )
     }
+
     let actions = []
+
     let key = 0
     for(let action in this.props.focusArea.actions){
       actions.push(<ActionButton key={key} action={this.props.focusArea.actions[action]} handleActionButtonClick={this.props.handleActionButtonClick}/>)

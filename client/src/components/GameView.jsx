@@ -15,6 +15,15 @@ class GameView extends React.Component{
     this.handleActionButtonClick = this.handleActionButtonClick.bind(this);
     this.handleAreaChange = this.handleAreaChange.bind(this)
   }
+  componentWillMount(){
+    //for testing
+    this.state.game.supply.food.fruit = 1
+    setInterval(()=>{
+      this.state.game.supplyTick()
+      this.forceUpdate()
+    }, 500)
+
+  }
 
   handleActionButtonClick(action){
     console.log(action)
