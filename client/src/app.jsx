@@ -68,11 +68,12 @@ function options(){
   });
 
   let eatFood = new Action("Eat",function(){
-    if (this.inventory.fruit) {
+    console.log(this.inventory.food)
+    if (this.inventory.food.fruit.quantity) {
       this.inventory.food.fruit.quantity -= 1;
       this.eventFeed.push(new Event("you eat some fruit"));
     } 
-    else if (this.inventory.meat){
+    else if (this.inventory.food.meat.quantity){
       this.inventory.food.meat.quantity -= 1;
       this.eventFeed.push(new Event("you eat some meat"));
     } 
