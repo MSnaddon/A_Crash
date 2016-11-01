@@ -72,44 +72,43 @@ function options(){
 
   //define Area Actions
   let gatherFruit = new Action( "Gather Fruit",function(){
-    this.inventory.food.fruit.quantity += 5;
-    this.eventFeed.push( new Event( "you gather fruit" ) );
-  });
+      this.inventory.food.fruit.quantity += 5;
+      this.eventFeed.push( new Event( "You gather fruit" ) );
+    }, 10000);
 
-  let hunt = new Action("Hunt",function(){
-    this.inventory.food.meat.quantity += 3;
-    this.eventFeed.push( new Event( "you hunt some meat" ) );
-  });
+    let hunt = new Action("Hunt",function(){
+      this.inventory.food.meat.quantity += 3;
+      this.eventFeed.push( new Event( "You hunt some meat" ) );
+    }, 10000);
 
-  let eatFood = new Action("Eat",function(){
-    if (this.inventory.food.fruit.quantity) {
-      this.inventory.food.fruit.quantity -= 1;
-      this.eventFeed.push(new Event("you eat some fruit"));
-    } 
-    else if (this.inventory.food.meat.quantity){
-      this.inventory.food.meat.quantity -= 1;
-      this.eventFeed.push(new Event("you eat some meat"));
-    } 
-    else {
-      this.eventFeed.push(new Event("You have no food to eat"));
-    }
-  });
+    let eatFood = new Action("Eat",function(){
+      if (this.inventory.food.fruit.quantity) {
+        this.inventory.food.fruit.quantity -= 1;
+        this.eventFeed.push(new Event("You eat some fruit"));
+      } 
+      else if (this.inventory.food.meat.quantity){
+        this.inventory.food.meat.quantity -= 1;
+        this.eventFeed.push(new Event("You eat some meat"));
+      } 
+      else {
+        this.eventFeed.push(new Event("You have no food to eat"));
+      }
+    }, 10000);
 
-  let forgeSword = new Action("Forge weapon",function(){
-    this.inventory.weapons.sword.quantity += 1;
-    this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
-  });
-  
-  let learnHunting = new Action("Learn to Hunt Better", function(){
-    this.areas.forest.actions.hunt = new Action("Hunt better", function(){
-      this.inventory.food.meat.quantity += 10
-    }) 
-  })
+    let forgeSword = new Action("Forge weapon",function(){
+      this.inventory.weapons.sword.quantity += 1;
+      this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
+    }, 10000);
+    
+    let learnHunting = new Action("Learn to Hunt Better", function(){
+      this.areas.forest.actions.hunt = new Action("Hunt better", function(){
+        this.inventory.food.meat.quantity += 10
+      }) 
 
 
   // define areas
   let areas = {
-    hQ: new Area("HeadQuarters", {
+    hQ: new Area("Headquarters", {
       forgeSword: forgeSword, 
       eat: eatFood
     }),
@@ -123,7 +122,7 @@ function options(){
   };
 
   //define default events
-  let events = [new Event("Started Testing"), new Event("continuing testing")];
+  let events = [new Event("Started Testing"), new Event("Continuing testing")];
 
 
   //define inventory
