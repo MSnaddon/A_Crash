@@ -74,12 +74,12 @@ function options(){
   let gatherFruit = new Action( "Gather Fruit",function(){
       this.inventory.food.fruit.quantity += 5;
       this.eventFeed.push( new Event( "You gather fruit" ) );
-    }, 10000);
+    }, 40000);
 
     let hunt = new Action("Hunt",function(){
       this.inventory.food.meat.quantity += 3;
       this.eventFeed.push( new Event( "You hunt some meat" ) );
-    }, 10000);
+    }, 60000);
 
     let eatFood = new Action("Eat",function(){
       if (this.inventory.food.fruit.quantity) {
@@ -93,18 +93,18 @@ function options(){
       else {
         this.eventFeed.push(new Event("You have no food to eat"));
       }
-    }, 10000);
+    }, 5000);
 
     let forgeSword = new Action("Forge weapon",function(){
       this.inventory.weapons.sword.quantity += 1;
       this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
-    }, 10000);
+    }, 30000);
     
     let learnHunting = new Action("Learn to Hunt Better", function(){
       this.areas.forest.actions.hunt = new Action("Hunt better", function(){
         this.inventory.food.meat.quantity += 10
       })
-    }, 10000)
+    }, 600000)
 
 
   // define areas

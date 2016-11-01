@@ -16,7 +16,6 @@ class ActionButton extends React.Component{
     this.onClick = this.onClick.bind(this);
   }
   onClick(){
-    console.log(this.state.cooldown)
     if (!this.state.cooldown) {
       this.props.handleActionButtonClick(this.props.action);
       this.setState({cooldown:true})
@@ -27,7 +26,8 @@ class ActionButton extends React.Component{
     } 
   }
   render(){
-  let className = "action-button button button-cooldown"
+    console.log(this.state.cooldown)
+    let className = this.state.cooldown ? "action-button button button-cooldown" :"action-button button"
 
     return (
         <div className={className} onClick={this.onClick}>{this.props.action.label}</div>
