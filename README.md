@@ -5,7 +5,7 @@ A game inspired by A dark room made using React.js
 
 # Doumentation
 
-Constructors:
+Constructors:  
 Action( label, callback )
 - label: Label to appear on button in game. If being used in a progression, label convention is to start with '#' but is otherwise unaffected.
 - callback: function bound to the game object allowing action to be played out
