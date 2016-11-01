@@ -4,12 +4,9 @@ const React = require('react');
 class ActionButton extends React.Component{
   constructor(props){
     super(props);
-
     this.state = {
       cooldown: false
-    }
-
-
+    } 
     this.onClick = this.onClick.bind(this);
   }
   onClick(){

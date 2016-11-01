@@ -14,6 +14,7 @@ class Action{
     return this.constructor.keyAssign
   }
 }
+
 Action.keyAssign = 1000;
 
 

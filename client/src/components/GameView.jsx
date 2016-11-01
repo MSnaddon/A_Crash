@@ -7,7 +7,7 @@ const EventTicker = require("./EventTicker")
 class GameView extends React.Component{
   constructor(props){
     super(props);
-    console.log(props)
+
     this.state = {
       game: props.gameObject, 
       focusArea: props.gameObject.areas["hQ"]
@@ -27,7 +27,7 @@ class GameView extends React.Component{
   }
 
   handleActionButtonClick(action){
-    console.log(action)
+    // console.log(action)
     this.state.game.doAction(action);
     this.forceUpdate()
   }

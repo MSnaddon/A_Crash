@@ -7,21 +7,54 @@ class Controls extends React.Component {
   constructor(props){
     super(props);
     // console.log(props)
+    this.state = {cooldown: {}}
+  }
+  handleActionButtonClick(action){
+    let key = action.key
+    //if action is off cooldown
+    if (!this.state.cooldown[action.key]) {
+      this.props.handleActionButtonClick(action);
+      let newCooldown = this.state.cooldown
+      newCooldown[key] = true
+      this.setState({ cooldown: newCooldown });
+
+      setTimeout( function(){
+        let newCooldown = this.state.cooldown
+        newCooldown[key] = false
+        this.setState({ cooldown: newCooldown })
+      }.bind(this), action.cooldown)
+    }
+
+
+    // this.setState({ cooldowns: { [key]: true } })
+    // setTimeout(function(){
+    //   this.setState({cooldown: false})
+    // }.bind(this), this.props.action.cooldown)
+
+    // this.props.handleActionButtonClick(action)
+  }
+  componentWillUpdate(nextProps, nextState){
+    console.log(nextState.cooldown)
+
   }
   render(){
+    //render a full set of actions seperateed by div with style="display:none;"
 
     let availableAreas = []
 
     for (let area in this.props.game.areas){
       availableAreas.push(
+        //needs to change handle area change to conpenent to affect display of actions box
         <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
         )
     }
 
     let actions = [] 
+
     for(let action in this.props.focusArea.actions){
       let actionObject = this.props.focusArea.actions[action]
-      actions.push(<ActionButton key={actionObject.key} action={actionObject} handleActionButtonClick={this.props.handleActionButtonClick}/>)
+      actions.push(<ActionButton key={actionObject.key} action={actionObject} handleActionButtonClick={this.handleActionButtonClick.bind(this)} cooldown={this.state.cooldown[actionObject.key]}/>)
+
     }
     // console.log(actions)
 
