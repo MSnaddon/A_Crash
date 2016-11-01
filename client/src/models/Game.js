@@ -7,7 +7,7 @@ class Game{
     this.areas = areas;
     this.eventFeed = eventFeed;
     this.inventory = inventory;
-    this.progressions = progressions
+    this.progressions = progressions;
     this.supply = {};
 
     this.populateSupplyWithInventory();
@@ -21,7 +21,9 @@ class Game{
   supplyTick(){
     for(let catagory in this.supply){
       for (let item in this.supply[catagory]){
-        this.inventory[catagory][item].quantity += this.supply[catagory][item] || 0;
+        if(this.inventory[catagory][item]){
+          this.inventory[catagory][item].quantity += this.supply[catagory][item] || 0;
+        }
       }
     }
     this.checkProgression()
