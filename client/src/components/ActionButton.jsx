@@ -1,12 +1,9 @@
 const React = require('react');
 // You can specify required props with CLASSNAME.propType = {key: React.PropTypes.<TYPE>.Required}
 //Look into this more.. could be useful.
-
-
 class ActionButton extends React.Component{
   constructor(props){
     super(props);
-    console.log(props)
 
     this.state = {
       cooldown: false
@@ -26,7 +23,6 @@ class ActionButton extends React.Component{
     } 
   }
   render(){
-    console.log(this.state.cooldown)
     let className = this.state.cooldown ? "action-button button button-cooldown" :"action-button button"
 
     return (
