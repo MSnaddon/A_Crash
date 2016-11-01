@@ -19,8 +19,6 @@ class Progression{
       } else {
         if(!check.bind(this)()) return false;
       }
-      
-
     }
     progression.done = true
     return true

@@ -21,7 +21,7 @@ class GameView extends React.Component{
     setInterval(()=>{
       this.state.game.supplyTick()
       this.forceUpdate()
-    }, 5000)
+    }, 500)
 
   }
 
