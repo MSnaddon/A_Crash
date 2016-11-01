@@ -1,6 +1,6 @@
 const React = require('react');
 
-const ActionButton = require('./ActionButton')
+const ActionButton = require('./stateless-components/ActionButton')
 const AreaButton = require('./stateless-components/AreaButton')
 
 class Controls extends React.Component {
