@@ -33,10 +33,6 @@ class Controls extends React.Component {
 
     // this.props.handleActionButtonClick(action)
   }
-  componentWillUpdate(nextProps, nextState){
-    console.log(nextState.cooldown)
-
-  }
   render(){
     //render a full set of actions seperateed by div with style="display:none;"
 

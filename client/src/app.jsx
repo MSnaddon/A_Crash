@@ -103,7 +103,7 @@ function options(){
     let learnHunting = new Action("Learn to Hunt Better", function(){
       this.areas.forest.actions.hunt = new Action("Hunt better", function(){
         this.inventory.food.meat.quantity += 10
-      })
+      }, 30000)
     }, 600000)
 
 
