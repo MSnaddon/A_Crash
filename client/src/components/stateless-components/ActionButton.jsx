@@ -6,7 +6,7 @@ const ActionButton = (props)=>{
   if(props.cooldown){
     style = {
       opacity: 0.5,
-      background: "#C3CDE7"
+      background: "black"
     }
   }
   // console.log(style)

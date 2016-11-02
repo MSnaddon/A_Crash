@@ -67,6 +67,7 @@ function options(){
     this.eventFeed.push(new Event("A weapon is great for hunting in wilds"));
     this.areas.forest.actions.hunt.available = true;
     this.areas.plains.actions.learnHunting.available = true;
+    delete this.progressions.gotSword
   })
 
   //define initial Progressions

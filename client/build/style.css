@@ -1,8 +1,13 @@
+html{
+  background:black;
+  color:white;
+}
+
 #game-view{
   display:flex;
   flex-flow:row nowrap;
   margin:10px;
-  border-top:2px black solid;
+  border-top:2px white solid;
 }
 
 /*children of main container*/
@@ -13,7 +18,7 @@
 }
 
 #controls{
-  background:#879BCF;
+  background:navy;
   min-width: 400px;
   flex: 2 1 auto;
 }
@@ -23,7 +28,7 @@
   flex: 0 1 auto;
 }
 #event-ticker{
-  background:#879BCF;
+  background:navy;
   width:300px;
   flex: 0 1 auto;
 }
@@ -46,17 +51,17 @@
   margin:10px;
   height: 30px;
   width: 120px;
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .area-change-button{
   margin:10px 0px;
   height: 40px;
   width: 120px;
-  border-right:2px solid black;
+  border-right:2px solid white;
 }
 .area-change-button:first-child{
-  border-left:2px solid black;
+  border-left:2px solid white;
 }
 
 /*control-box styling*/
@@ -67,6 +72,7 @@
 
   overflow-x: scroll;
 }
+
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -80,6 +86,4 @@
 
 .ticker-event{
   margin:15px 0px;
-}
-
 }
