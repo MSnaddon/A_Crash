@@ -57,17 +57,24 @@ function options(){
     this.eventFeed.push(new Event("That's a lot of fruit")) 
   })
 
+  let revealPlains = new Action ("#used 10 forest actions revealsPlains", function(){
+    this.areas.plains.available = true;
+  })
 
   //define initial Progressions
   let hiredAGatherer = new Progression( "Hired first Gatherer", foodBonus, {
     actionHireGatherer: false
   });
 
-  let haveAtLeastFiftyFruit = new Progression( "#Gathered 50 fruit", announceFood,{
+  let haveAtLeastFiftyFruit = new Progression( "Gathered 50 fruit", announceFood,{
     haveFiftyFood: function(){
       return this.inventory.food.fruit.quantity >= 50
     }
   })
+
+  let exploredForest = new Progression( "revealPlains", revealPlains, {
+
+  } )
 
 
   //define Area Actions
@@ -122,6 +129,9 @@ function options(){
     })
   };
 
+
+  areas.hQ.available = true;
+  areas.forest.available = true;
   //define default events
   let events = [new Event("Started Testing"), new Event("Continuing testing")];
 

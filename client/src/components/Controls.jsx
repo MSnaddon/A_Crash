@@ -28,12 +28,13 @@ class Controls extends React.Component {
     //render a full set of actions seperateed by div with style="display:none;"
 
     let availableAreas = []
-
     for (let area in this.props.game.areas){
-      availableAreas.push(
-      //needs to change handle area change to conpenent to affect display of actions box
-      <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
-      )
+      console.log(area, this.props.game.areas[area].available)
+      if( this.props.game.areas[area].available === true ){
+        availableAreas.push(
+        <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
+        )
+      }
     }
 
     let actions = [] 
