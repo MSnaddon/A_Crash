@@ -50,6 +50,7 @@ const Progression = require('./models/Progression')
 function options(){
   //define progression Actions
   let foodBonus = new Action( "#first gatherer gives 20 food", function(){
+    this.eventFeed.push(new Event("Your gatherer had beginners luck"))
     this.inventory.food.fruit.quantity = this.inventory.food.fruit.quantity + 20 || 20
   });
 
@@ -89,7 +90,6 @@ function options(){
 
   let gotSword = new Progression("got sword", revealHuntActions, {
     haveAtLeastOneSword: function(){
-      console.log(this.inventory.weapons.sword.quantity)
       return this.inventory.weapons.sword.quantity > 0
     }
   })
@@ -100,7 +100,7 @@ function options(){
       this.inventory.food.fruit.quantity += 5;
       this.progressions.exploredForest.counters.forestActionCount += 1;
       this.eventFeed.push( new Event( "You gather fruit" ) );
-    }, 2000);
+    }, 500);
 
   let hunt = new Action("Hunt",function(){
     this.inventory.food.meat.quantity += 3;
@@ -127,17 +127,25 @@ function options(){
     this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
   }, 30000);
   
-  let learnHunting = new Action("Learn to Hunt Better", function(){
-    this.areas.forest.actions.hunt = new Action("Hunt better", function(){
+  let learnHunting = new Action("Practice Hunting", function(){
+    this.areas.forest.actions.hunt = new Action("Hunt +", function(){
       this.inventory.food.meat.quantity += 10
     }, 30000)
+    this.areas.forest.actions.hunt.available = true;
+    this.areas.plains.actions.learnHunting = false;
   }, 600000)
 
+  let hireGatherer = new Action("Hire gatherer", function(){
+    this.supply.food.fruit = this.supply.food.fruit + 1 || 1;
+    this.progressions.hiredAGatherer.thresholds.actionHireGatherer = true;
+  }, 200000)
+  console.log(hireGatherer)
 
   //set Action availability
   forgeSword.available = true;
   eatFood.available = true;
   gatherFruit.available = true;
+  hireGatherer.available = true;
 
   // define areas
   let areas = {
@@ -150,13 +158,15 @@ function options(){
       hunt: hunt
     }),
     plains: new Area("Plains", {
-      learnHunting: learnHunting
+      learnHunting: learnHunting,
+      hireGatherer: hireGatherer
     })
   };
 
 
   areas.hQ.available = true;
   areas.forest.available = true;
+
   //define default events
   let events = [new Event("Started Testing"), new Event("Continuing testing")];
 

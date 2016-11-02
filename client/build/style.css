@@ -1,5 +1,5 @@
 html{
-  background:black;
+  background:#111133;
   color:white;
 }
 
@@ -18,7 +18,7 @@ html{
 }
 
 #controls{
-  background:navy;
+  background:#003366;
   min-width: 400px;
   flex: 2 1 auto;
 }
@@ -28,7 +28,7 @@ html{
   flex: 0 1 auto;
 }
 #event-ticker{
-  background:navy;
+  background:#003366;
   width:300px;
   flex: 0 1 auto;
 }
