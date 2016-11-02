@@ -133,7 +133,7 @@ function options(){
     }, 30000)
     this.areas.forest.actions.hunt.available = true;
     this.areas.plains.actions.learnHunting = false;
-  }, 600000)
+  }, 10)
 
   let hireGatherer = new Action("Hire gatherer", function(){
     this.supply.food.fruit = this.supply.food.fruit + 1 || 1;
@@ -174,10 +174,10 @@ function options(){
   //define inventory
   let inventoryItems = {
     food: {
-      fruit: new InventoryItem("fruit",2), 
-      meat: new InventoryItem("meat", 4)
+      fruit: new InventoryItem("Fruit",2), 
+      meat: new InventoryItem("Meat", 4)
     },
-    weapons: {sword: new InventoryItem("sword", 0)}
+    weapons: {sword: new InventoryItem("Sword", 0)}
   };
 
   let progressions = {
