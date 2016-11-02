@@ -13,7 +13,6 @@ class Progression{
     //this = the game
     for(let checkKey in progression.thresholds){
       let check = progression.thresholds[checkKey];
-      // if boolean, check for false. else, invoke checker function and return false on fail
       if (typeof check === 'boolean'){
         if (!check) return false;
       } else {

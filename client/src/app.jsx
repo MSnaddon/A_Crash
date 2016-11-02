@@ -168,7 +168,7 @@ function options(){
   areas.forest.available = true;
 
   //define default events
-  let events = [new Event("Started Testing"), new Event("Continuing testing")];
+  let events = [ new Event("Why thank you, I made it myself"), new Event("Totally awesome game by the way") ];
 
 
   //define inventory

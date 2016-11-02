@@ -12,7 +12,6 @@ html{
 
 /*children of main container*/
 .game-view-child{
-  
   padding:10px;
   height: 100vh;
 }
@@ -92,4 +91,10 @@ html{
   to { opacity: 0.6;
     background-color: navy;
   }
+}
+
+.inventory-catagory{
+  margin:10px 0px;
+  border: 1px white solid;
+  padding: 5px;
 }
