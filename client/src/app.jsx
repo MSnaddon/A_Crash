@@ -58,8 +58,16 @@ function options(){
   });
 
   let revealPlains = new Action ("#used 10 forest actions revealsPlains", function(){
+    this.eventFeed.push(new Event("Exploring the forest has revealed a vast hunting ground"));
     this.areas.plains.available = true;
   });
+
+  let revealHuntActions = new Action("#having sword reveals hunting", function(){
+    console.log("hunt actions revealed")
+    this.eventFeed.push(new Event("A weapon is great for hunting in wilds"));
+    this.areas.forest.actions.hunt.available = true;
+    this.areas.plains.actions.learnHunting.available = true;
+  })
 
   //define initial Progressions
   let hiredAGatherer = new Progression( "Hired first Gatherer", foodBonus, {
@@ -74,18 +82,24 @@ function options(){
 
   let exploredForest = new Progression( "revealPlains", revealPlains, {
     doneTenForestActions: function(){
-      console.log(this.progressions.exploredForest.counters.forestActionCount)
       return this.progressions.exploredForest.counters.forestActionCount >= 10
     }
   }, {forestActionCount: 0});
 
+  let gotSword = new Progression("got sword", revealHuntActions, {
+    haveAtLeastOneSword: function(){
+      console.log(this.inventory.weapons.sword.quantity)
+      return this.inventory.weapons.sword.quantity > 0
+    }
+  })
 
   //define Area Actions
+  //need to refactor to let actions have a catagory to which "doAction" in game will automaticaly update counters in progressions. for now this should do. 
   let gatherFruit = new Action( "Gather Fruit",function(){
       this.inventory.food.fruit.quantity += 5;
       this.progressions.exploredForest.counters.forestActionCount += 1;
       this.eventFeed.push( new Event( "You gather fruit" ) );
-    }, 40000);
+    }, 2000);
 
   let hunt = new Action("Hunt",function(){
     this.inventory.food.meat.quantity += 3;
@@ -119,6 +133,11 @@ function options(){
   }, 600000)
 
 
+  //set Action availability
+  forgeSword.available = true;
+  eatFood.available = true;
+  gatherFruit.available = true;
+
   // define areas
   let areas = {
     hQ: new Area("Headquarters", {
@@ -130,7 +149,7 @@ function options(){
       hunt: hunt
     }),
     plains: new Area("Plains", {
-      leanrHunting: learnHunting
+      learnHunting: learnHunting
     })
   };
 
@@ -153,9 +172,9 @@ function options(){
   let progressions = {
     hiredAGatherer: hiredAGatherer,
     fiftyFruit: haveAtLeastFiftyFruit,
-    exploredForest: exploredForest
+    exploredForest: exploredForest,
+    gotSword: gotSword
   }
-
 
   return {
     areas: areas,

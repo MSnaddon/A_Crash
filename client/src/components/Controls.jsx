@@ -40,8 +40,9 @@ class Controls extends React.Component {
 
     for(let action in this.props.focusArea.actions){
       let actionObject = this.props.focusArea.actions[action]
-      actions.push(<ActionButton key={actionObject.key} action={actionObject} handleActionButtonClick={this.handleActionButtonClick.bind(this)} cooldown={this.state.cooldown[actionObject.key]}/>)
-
+      if(actionObject.available == true){
+        actions.push(<ActionButton key={actionObject.key} action={actionObject} handleActionButtonClick={this.handleActionButtonClick.bind(this)} cooldown={this.state.cooldown[actionObject.key]}/>)
+      }
     }
     // console.log(actions)
 
