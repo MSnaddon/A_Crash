@@ -26,15 +26,15 @@ class Game{
         }
       }
     }
-    this.checkProgression()
+    this.checkProgression();
   }
   doAction(action){
     action.trigger.bind(this)();
-    this.checkProgression()
+    this.checkProgression();
   }
   checkProgression(){
     for(let key in this.progressions){
-      let goal = this.progressions[key]
+      let goal = this.progressions[key];
       if(!goal.done && goal.isPastThreshold.bind(this)(goal)){
         this.doAction.bind(this)(goal.advanceAction);
       }

@@ -41,21 +41,26 @@ window.onload = () => {
 
 
 
-const Area = require('./models/Area')
-const Event = require('./models/Event')
-const InventoryItem = require('./models/InventoryItem')
-const Action = require('./models/Action')
-const Progression = require('./models/Progression')
+
+
+
+
+
+const Area = require('./models/Area');
+const Event = require('./models/Event');
+const InventoryItem = require('./models/InventoryItem');
+const Action = require('./models/Action');
+const Progression = require('./models/Progression');
 
 function options(){
   //define progression Actions
   let foodBonus = new Action( "#first gatherer gives 20 food", function(){
-    this.eventFeed.push(new Event("Your gatherer had beginners luck"))
-    this.inventory.food.fruit.quantity = this.inventory.food.fruit.quantity + 20 || 20
+    this.eventFeed.push(new Event("Your gatherer had beginners luck"));
+    this.inventory.food.fruit.quantity = this.inventory.food.fruit.quantity + 20 || 20;
   });
 
   let announceFood = new Action( "#gathering 50 food adds Event",function(){
-    this.eventFeed.push(new Event("That's a lot of fruit")) 
+    this.eventFeed.push(new Event("That's a lot of fruit"));
   });
 
   let revealPlains = new Action ("#used 10 forest actions revealsPlains", function(){
@@ -64,11 +69,10 @@ function options(){
   });
 
   let revealHuntActions = new Action("#having sword reveals hunting", function(){
-    console.log("hunt actions revealed")
     this.eventFeed.push(new Event("A weapon is great for hunting in wilds"));
     this.areas.forest.actions.hunt.available = true;
     this.areas.plains.actions.learnHunting.available = true;
-    delete this.progressions.gotSword
+    delete this.progressions.gotSword;
   })
 
   //define initial Progressions
@@ -78,19 +82,19 @@ function options(){
 
   let haveAtLeastFiftyFruit = new Progression( "Gathered 50 fruit", announceFood,{
     haveFiftyFood: function(){
-      return this.inventory.food.fruit.quantity >= 50
+      return this.inventory.food.fruit.quantity >= 50;
     }
   });
 
   let exploredForest = new Progression( "revealPlains", revealPlains, {
     doneTenForestActions: function(){
-      return this.progressions.exploredForest.counters.forestActionCount >= 10
+      return this.progressions.exploredForest.counters.forestActionCount >= 10;
     }
   }, {forestActionCount: 0});
 
   let gotSword = new Progression("got sword", revealHuntActions, {
     haveAtLeastOneSword: function(){
-      return this.inventory.weapons.sword.quantity > 0
+      return this.inventory.weapons.sword.quantity > 0;
     }
   })
 
@@ -129,8 +133,8 @@ function options(){
   
   let learnHunting = new Action("Practice Hunting", function(){
     this.areas.forest.actions.hunt = new Action("Hunt +", function(){
-      this.inventory.food.meat.quantity += 10
-    }, 30000)
+      this.inventory.food.meat.quantity += 10;
+    }, 30000);
     this.areas.forest.actions.hunt.available = true;
     this.areas.plains.actions.learnHunting = false;
   }, 10)
@@ -138,8 +142,7 @@ function options(){
   let hireGatherer = new Action("Hire gatherer", function(){
     this.supply.food.fruit = this.supply.food.fruit + 1 || 1;
     this.progressions.hiredAGatherer.thresholds.actionHireGatherer = true;
-  }, 200000)
-  console.log(hireGatherer)
+  }, 200000);
 
   //set Action availability
   forgeSword.available = true;
@@ -185,12 +188,12 @@ function options(){
     fiftyFruit: haveAtLeastFiftyFruit,
     exploredForest: exploredForest,
     gotSword: gotSword
-  }
+  };
 
   return {
     areas: areas,
     eventFeed: events,
     inventory: inventoryItems,
     progressions: progressions
-  }
+  };
 }

@@ -1,6 +1,6 @@
 class Event{
   constructor(description){
-    this.description = description
+    this.description = description;
   }
 }
 
