@@ -4,7 +4,6 @@ const React = require('react');
 const ActionButton = (props)=>{
   let style;
   if(props.cooldown){
-    let animation = (props.action.cooldown)/1000
     style = {
       opacity: 0.5,
       background: "#C3CDE7"

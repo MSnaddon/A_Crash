@@ -64,7 +64,11 @@
 #area-select{
   display:flex;
   flex-flow: row nowrap;
+
   overflow-x: scroll;
+}
+::-webkit-scrollbar { 
+    display: none; 
 }
 
 #action-select{
