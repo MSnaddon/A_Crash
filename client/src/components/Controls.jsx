@@ -6,7 +6,6 @@ const AreaButton = require('./stateless-components/AreaButton')
 class Controls extends React.Component {
   constructor(props){
     super(props);
-    // console.log(props)
     this.state = {cooldown: {}}
   }
   handleActionButtonClick(action){
@@ -24,14 +23,6 @@ class Controls extends React.Component {
         this.setState({ cooldown: newCooldown })
       }.bind(this), action.cooldown)
     }
-
-
-    // this.setState({ cooldowns: { [key]: true } })
-    // setTimeout(function(){
-    //   this.setState({cooldown: false})
-    // }.bind(this), this.props.action.cooldown)
-
-    // this.props.handleActionButtonClick(action)
   }
   render(){
     //render a full set of actions seperateed by div with style="display:none;"
@@ -40,9 +31,9 @@ class Controls extends React.Component {
 
     for (let area in this.props.game.areas){
       availableAreas.push(
-        //needs to change handle area change to conpenent to affect display of actions box
-        <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
-        )
+      //needs to change handle area change to conpenent to affect display of actions box
+      <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
+      )
     }
 
     let actions = [] 
