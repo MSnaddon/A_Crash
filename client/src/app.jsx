@@ -51,15 +51,15 @@ function options(){
   //define progression Actions
   let foodBonus = new Action( "#first gatherer gives 20 food", function(){
     this.inventory.food.fruit.quantity = this.inventory.food.fruit.quantity + 20 || 20
-  })
+  });
 
   let announceFood = new Action( "#gathering 50 food adds Event",function(){
     this.eventFeed.push(new Event("That's a lot of fruit")) 
-  })
+  });
 
   let revealPlains = new Action ("#used 10 forest actions revealsPlains", function(){
     this.areas.plains.available = true;
-  })
+  });
 
   //define initial Progressions
   let hiredAGatherer = new Progression( "Hired first Gatherer", foodBonus, {
@@ -70,48 +70,53 @@ function options(){
     haveFiftyFood: function(){
       return this.inventory.food.fruit.quantity >= 50
     }
-  })
+  });
 
   let exploredForest = new Progression( "revealPlains", revealPlains, {
-
-  } )
+    doneTenForestActions: function(){
+      console.log(this.progressions.exploredForest.counters.forestActionCount)
+      return this.progressions.exploredForest.counters.forestActionCount >= 10
+    }
+  }, {forestActionCount: 0});
 
 
   //define Area Actions
   let gatherFruit = new Action( "Gather Fruit",function(){
       this.inventory.food.fruit.quantity += 5;
+      this.progressions.exploredForest.counters.forestActionCount += 1;
       this.eventFeed.push( new Event( "You gather fruit" ) );
     }, 40000);
 
-    let hunt = new Action("Hunt",function(){
-      this.inventory.food.meat.quantity += 3;
-      this.eventFeed.push( new Event( "You hunt some meat" ) );
-    }, 60000);
+  let hunt = new Action("Hunt",function(){
+    this.inventory.food.meat.quantity += 3;
+    this.progressions.exploredForest.counters.forestActionCount += 1;
+    this.eventFeed.push( new Event( "You hunt some meat" ) );
+  }, 60000);
 
-    let eatFood = new Action("Eat",function(){
-      if (this.inventory.food.fruit.quantity) {
-        this.inventory.food.fruit.quantity -= 1;
-        this.eventFeed.push(new Event("You eat some fruit"));
-      } 
-      else if (this.inventory.food.meat.quantity){
-        this.inventory.food.meat.quantity -= 1;
-        this.eventFeed.push(new Event("You eat some meat"));
-      } 
-      else {
-        this.eventFeed.push(new Event("You have no food to eat"));
-      }
-    }, 5000);
+  let eatFood = new Action("Eat",function(){
+    if (this.inventory.food.fruit.quantity) {
+      this.inventory.food.fruit.quantity -= 1;
+      this.eventFeed.push(new Event("You eat some fruit"));
+    } 
+    else if (this.inventory.food.meat.quantity){
+      this.inventory.food.meat.quantity -= 1;
+      this.eventFeed.push(new Event("You eat some meat"));
+    } 
+    else {
+      this.eventFeed.push(new Event("You have no food to eat"));
+    }
+  }, 5000);
 
-    let forgeSword = new Action("Forge weapon",function(){
-      this.inventory.weapons.sword.quantity += 1;
-      this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
-    }, 30000);
-    
-    let learnHunting = new Action("Learn to Hunt Better", function(){
-      this.areas.forest.actions.hunt = new Action("Hunt better", function(){
-        this.inventory.food.meat.quantity += 10
-      }, 30000)
-    }, 600000)
+  let forgeSword = new Action("Forge weapon",function(){
+    this.inventory.weapons.sword.quantity += 1;
+    this.eventFeed.push(new Event("You forge a metal stick, Waaay"));
+  }, 30000);
+  
+  let learnHunting = new Action("Learn to Hunt Better", function(){
+    this.areas.forest.actions.hunt = new Action("Hunt better", function(){
+      this.inventory.food.meat.quantity += 10
+    }, 30000)
+  }, 600000)
 
 
   // define areas
@@ -147,7 +152,8 @@ function options(){
 
   let progressions = {
     hiredAGatherer: hiredAGatherer,
-    fiftyFruit: haveAtLeastFiftyFruit
+    fiftyFruit: haveAtLeastFiftyFruit,
+    exploredForest: exploredForest
   }
 
 

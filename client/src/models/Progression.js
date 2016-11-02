@@ -1,9 +1,10 @@
 class Progression{
-  constructor(description, advanceAction, thresholdObject){
+  constructor(description, advanceAction, thresholdObject, counters){
     this.description = description;
     //threshold object must contain keys which return boolean values stating true if they are complete
     this.thresholds = thresholdObject;
     this.advanceAction = advanceAction;
+    this.counters = counters || {}
     this.done = false
   }
   //alternative in checker is to pass the game, breaks Solid... not sure what this way breaks but it breaks something. Invoking a method that passes itself has got to break some rules. potential stack overflow?
@@ -12,7 +13,6 @@ class Progression{
     //this = the game
     for(let checkKey in progression.thresholds){
       let check = progression.thresholds[checkKey];
-
       // if boolean, check for false. else, invoke checker function and return false on fail
       if (typeof check === 'boolean'){
         if (!check) return false;

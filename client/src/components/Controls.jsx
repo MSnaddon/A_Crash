@@ -29,7 +29,6 @@ class Controls extends React.Component {
 
     let availableAreas = []
     for (let area in this.props.game.areas){
-      console.log(area, this.props.game.areas[area].available)
       if( this.props.game.areas[area].available === true ){
         availableAreas.push(
         <AreaButton key={area} area={this.props.game.areas[area]} handleAreaChange={this.props.handleAreaChange} />
