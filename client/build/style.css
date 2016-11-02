@@ -43,10 +43,6 @@ html{
   align-items: center;
 }
 
-.button-cooldown{
-  background: red;
-}
-
 .action-button{
   margin:10px;
   height: 30px;
@@ -86,4 +82,14 @@ html{
 
 .ticker-event{
   margin:15px 0px;
+}
+
+@keyframes fade{
+  from {
+    opacity: 0.2;
+    background-color: black;
+  }
+  to { opacity: 0.6;
+    background-color: navy;
+  }
 }

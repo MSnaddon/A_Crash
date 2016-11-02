@@ -4,11 +4,13 @@ const React = require('react');
 const ActionButton = (props)=>{
   let style;
   if(props.cooldown){
+    let animationDuration = ((props.action.cooldown)/1000) + "s"
+    // console.log(animationDuration)
     style = {
-      opacity: 0.5,
-      background: "black"
+      animation: "fade " + animationDuration + " ease-out",
     }
   }
+  console.log(style)
   // console.log(style)
   let onClick = ()=>{
     props.handleActionButtonClick(props.action)
