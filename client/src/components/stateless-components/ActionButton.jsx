@@ -10,7 +10,6 @@ const ActionButton = (props)=>{
       animation: "fade " + animationDuration + " ease-out",
     }
   }
-  console.log(style)
   // console.log(style)
   let onClick = ()=>{
     props.handleActionButtonClick(props.action)
