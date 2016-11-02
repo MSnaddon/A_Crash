@@ -13,7 +13,7 @@ class Inventory extends React.Component {
         items.push(<div key={itemObject.name}>{itemObject.name} - {itemObject.quantity}</div>)
 
       }
-      let header = catagory.replace(/\b\w/, (letter)=>{ return letter.toUpperCase() })
+      let header = catagory.replace(/\b\w/, (letter)=>{ return letter.toUpperCase() })g
       catagories.push(<div key={catagory}>{header}<div className="inventory-catagory">{items}</div></div>)
 
     }
