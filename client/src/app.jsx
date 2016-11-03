@@ -74,7 +74,7 @@ function options(){
     this.areas.plains.actions.learnHunting.available = true;
     delete this.progressions.gotSword;
   })
-
+  
   //define initial Progressions
   let hiredAGatherer = new Progression( "Hired first Gatherer", foodBonus, {
     actionHireGatherer: false
