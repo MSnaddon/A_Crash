@@ -31,19 +31,14 @@ Progression( description, advanceAction, thresholdObject , counters)
 - description: a short description of the game's progression point
 - advanceAction: an Action object detailing the changes being made for progression
 - thresholdObject: object where key is the checks name and the value is one of two options.
-
-
-
 A function that returns true or false depending on a condition set.
-
-
 A false value which another Action will set to true (failing to will render the progression impossible)
 - counters: An object that holds counters for the thresholds to check. Should be modified by actions but this is likely to be refactored.
 
 
 Game ({options})
-- options: an object containing various information
--- areas : object with {key => areas} references
--- eventFeed : an array for displaying the initial events
--- inventory : your initial inventory
--- progressions : an object with {key => progression} references.
+options: an object containing various information
+- areas : object with {key => areas} references
+- eventFeed : an array for displaying the initial events
+- inventory : your initial inventory
+- progressions : an object with {key => progression} references.
