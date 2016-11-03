@@ -8,7 +8,7 @@ A game inspired by A dark room made using React.js
 Constructors:
 
 
-Action( label, callback )
+Action( label, callback, cooldown )
 - label: Label to appear on button in game. If being used in a progression, label convention is to start with '#' but is otherwise unaffected.
 - callback: function bound to the game object allowing action to be played out
 
@@ -27,12 +27,23 @@ InventoryItem( name, initialQuantity )
 - initialQuantity: initial quantity for inventory
 
 
-Progression( description, advanceAction, thresholdObject )
+Progression( description, advanceAction, thresholdObject , counters)
 - description: a short description of the game's progression point
 - advanceAction: an Action object detailing the changes being made for progression
-- thresholdObject: object where key is the checks name and the value is one of two options.__
-1. a function that returns true or false depending on a condition set.__
-2. a false value which another Action will set to true (failing to will render the progression impossible)
+- thresholdObject: object where key is the checks name and the value is one of two options.
 
 
-Game ()
+
+A function that returns true or false depending on a condition set.
+
+
+A false value which another Action will set to true (failing to will render the progression impossible)
+- counters: An object that holds counters for the thresholds to check. Should be modified by actions but this is likely to be refactored.
+
+
+Game ({options})
+- options: an object containing various information
+-- areas : object with {key => areas} references
+-- eventFeed : an array for displaying the initial events
+-- inventory : your initial inventory
+-- progressions : an object with {key => progression} references.
