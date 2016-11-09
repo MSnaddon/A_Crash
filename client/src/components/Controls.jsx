@@ -37,7 +37,7 @@ class Controls extends React.Component {
     }
 
     let actions = [] 
-
+    // console.log(this.props)
     for(let action in this.props.focusArea.actions){
       let actionObject = this.props.focusArea.actions[action]
       if(actionObject.available == true){

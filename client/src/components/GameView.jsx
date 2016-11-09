@@ -10,18 +10,18 @@ class GameView extends React.Component{
 
     this.state = {
       game: props.gameObject, 
-      focusArea: props.gameObject.areas["hQ"]
+      focusArea: props.gameObject.areas[Object.keys(props.gameObject.areas)[0]]
     };
 
     this.handleActionButtonClick = this.handleActionButtonClick.bind(this);
-    this.handleAreaChange = this.handleAreaChange.bind(this)
+    this.handleAreaChange = this.handleAreaChange.bind(this);
   }
   componentWillMount(){
     //for testing
     setInterval(()=>{
       this.state.game.supplyTick()
       this.forceUpdate()
-    }, 50)
+    }, 5000)
 
   }
 
@@ -34,7 +34,17 @@ class GameView extends React.Component{
   handleAreaChange(area){
     this.setState({focusArea: area})
   }
-
+  componentWillUpdate(){
+    //if a progression deletes the current focus area, find a new available area
+    if(!this.state.focusArea.available){
+      for (let key in this.state.game.areas){
+        if(this.state.game.areas[key].available){
+          this.state.focusArea = this.state.game.areas[key]
+          break
+        }
+      }
+    }
+  }
   render() {
     let game = this.state.game;
 
