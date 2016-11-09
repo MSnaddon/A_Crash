@@ -5,7 +5,11 @@ const Game = require('./models/Game')
 
 const GameView = require("./components/GameView")
 
+const aCrashGameOptions = require("./crash_game/aCrashBuilder")
+
+
 window.onload = () => {
+  console.log(aCrashGameOptions);
   
   let game = new Game(options());
 
