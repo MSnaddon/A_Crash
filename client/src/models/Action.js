@@ -5,6 +5,7 @@ class Action{
     this.label = label;
     this.cooldown = cooldown;
     this.key = this.assignKey();
+    this.counter = 0;
   }
   toggleAvailability(){
     this.available = this.available === false;

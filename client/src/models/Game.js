@@ -29,6 +29,7 @@ class Game{
     this.checkProgression();
   }
   doAction(action){
+    action.counter ++
     action.trigger.bind(this)();
     this.checkProgression();
   }
